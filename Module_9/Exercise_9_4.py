@@ -1,3 +1,5 @@
+import random
+
 class Car:
     def __init__(self, registration_num, max_spd, current_spd = 0,
                  travel_d = 0):
@@ -10,10 +12,10 @@ class Car:
         print(f"Registration Number: {self.registration_num}\n"
               f"Max Speed: {self.max_spd} km/h\n"
               f"Current Speed: {self.current_spd} km/h\n"
-              f"Travel Distance: {self.travel_d} km")
+              f"Travel Distance: {self.travel_d} km\n")
 
     def accelerate(self, spd_change):
-        print(f"Accelerating by {spd_change} km/h")
+        # print(f"Accelerating by {spd_change} km/h")
         new_spd = spd_change + self.current_spd
         if new_spd < 0:
             self.current_spd = 0
@@ -30,14 +32,25 @@ class Car:
         else:
             print(f"Driving for {time} hour at {self.current_spd}.")
 
-hyundai = Car("ABC-123", 142,0,2000)
+car_list = []
+for i in range(10):
+    car_list.append(Car(f"ABC-{i + 1}", random.randint(100,200)))
+
+stopper = 1
+while stopper != 0:
+    for car in car_list:
+        car.accelerate(random.randint(-10, 15))
+        car.drive(1)
+
+    for car in car_list:
+        if car.travel_d > 10000:
+            stopper = 0
 
 
-hyundai.properties()
-print()
-hyundai.accelerate(60)
-hyundai.drive(1.5)
-print()
-hyundai.properties()
+for car in car_list:
+    car.properties()
+
+
+
 
 
