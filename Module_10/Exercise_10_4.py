@@ -67,6 +67,10 @@ while not dd_race.race_finished(): # I originally had while dd_race.race_finishe
         dd_race.hour_passes()
     print()
     dd_race.print_status()
+print()
+print(f"{"Registration Number":<25}{"Max Speed":<25}{"Current Speed":<25}{"Travel Distance":<25}")
+for i in range(10):
+    print(f"{car_list[i].registration_num:<25}{f"{car_list[i].max_spd} km/h":<25}{f"{car_list[i].current_spd} km/h":<25}{f"{car_list[i].travel_d} km":<25}")
 
 
 
