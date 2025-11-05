@@ -22,6 +22,7 @@ try:
         print(f"Weather: {json_response["weather"][0]["description"]}")
         print(f"Temperature: {round(json_response["main"]["temp"] - 273.15, 2)}°C")
     else:
+        print("Error Code: ")
         print(response.status_code)
 except ValueError:
     print("Value Error")
