@@ -1,19 +1,15 @@
-# THIS IS NOT COMPLETED ###
-#######33 DO THIS ############33
-####################################33
-################################3
-###########OI OI OI###################33
-############3DONT LEAVE THIS UNDONE!!##############33
-133333333333 just a copy 141234444444444444
-21111111111111111
-222222222222222222222no editing done yet 4444444444444444444444444
-6767767676766767676676767676676767676767676767677667
-you need to edit this"""""""2333""""
-2222222222222222222222 " 33. {# 33 .#"""#
-
-
-
-
+# adding two subclasses: ElectricCar and GasolineCar
+# Electric cars have the capacity of the battery in kilowatt-hours as their property.
+# Gasoline cars have the volume of the tank in liters as their property.
+# Write initializers for the subclasses.
+# For example, the initializer of electric cars receives the
+# registration number,
+# maximum speed and
+# battery capacity as its parameters
+# It calls the initializer of the base class to set the first two properties and then sets its capacity.
+# Write a main program where you create one electric car (ABC-15, 180 km/h, 52.5 kWh) and one gasoline car (ACD-123, 165 km/h, 32.3 l).
+# Select speeds for both cars,
+# make them drive for three hours and print out the values of their kilometer counters.
 
 import random
 
@@ -32,7 +28,7 @@ class Car:
               f"Travel Distance: {self.travel_d} km\n")
 
     def accelerate(self, spd_change):
-        # print(f"Accelerating by {spd_change} km/h")
+        print(f"Accelerating by {spd_change} km/h")
         new_spd = spd_change + self.current_spd
         if new_spd < 0:
             self.current_spd = 0
@@ -49,50 +45,27 @@ class Car:
         else:
             print(f"Driving for {time} hour at {self.current_spd}.")
 
-class Race:
-    def __init__(self, name, km, c_list):
-        self.name = name
-        self.race_length = km
-        self.c_list = c_list
 
-    def hour_passes(self):
-        for i in range(len(self.c_list)):
-            self.c_list[i].accelerate(random.randint(-10, 15))
-            self.c_list[i].drive(1)
-    def print_status(self):
-        for car in self.c_list:
-            car.properties()
+class ElectricCar(Car):
+    def __init__(self, registration_num, max_spd, batt_c):
+        super().__init__(registration_num, max_spd)
 
-    def race_finished(self):
-        for car in self.c_list:
-            if car.travel_d > self.race_length:
-                print("Race Ended")
-                return True
-            else:
-                return False
-        return None
+class GasCar(Car):
+    def __init__(self, registration_num, max_spd, fuel):
+        super().__init__(registration_num, max_spd)
+        self.fuel = fuel
 
-car_list = []
-for i in range(10): # creation of the cars in the race from the previous program
-    car_list.append(Car(f"ABC-{i + 1}", random.randint(100,200)))
+e_car = ElectricCar("ABC-15", 180, 52.5)
+g_car = GasCar("ACD-123", 165, 32.3)
 
-dd_race = Race("Grand Demolition Derby", 8000, car_list)
-dd_race.print_status()
+car_list = [e_car, g_car]
 
-while not dd_race.race_finished(): # I originally had while dd_race.race_finished != True, or something like that
-    for i in range(10): # for every 10 hour
-        dd_race.hour_passes()
-    print()
-    dd_race.print_status()
-print()
+e_car.accelerate(133)
+g_car.accelerate(143)
+
+e_car.drive(3)
+g_car.drive(3)
+
 print(f"{"Registration Number":<25}{"Max Speed":<25}{"Current Speed":<25}{"Travel Distance":<25}")
-for i in range(10):
+for i in range(len(car_list)):
     print(f"{car_list[i].registration_num:<25}{f"{car_list[i].max_spd} km/h":<25}{f"{car_list[i].current_spd} km/h":<25}{f"{car_list[i].travel_d} km":<25}")
-
-
-
-
-
-
-
-
