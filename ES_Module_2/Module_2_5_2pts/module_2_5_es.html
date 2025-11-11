@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        function dice_roll() {
+            let r = Math.floor(Math.random() * 6) + 1;
+            return r;
+        }
+
+        const bodySelector = document.querySelector("body")
+        bodySelector.innerHTML = "<button id='roller'>Roll Dice to 6</button> <button id='reset'>Reset to Roll Again</button>"
+        let diceButton = document.querySelector("#roller");
+        let ulMaker = document.createElement("ul");
+        bodySelector.appendChild(ulMaker);
+        const ulSelector = document.querySelector("ul");
+
+        let rollX = 0;
+        diceButton.onclick = () => {
+            while (rollX !== 6) {
+                rollX = dice_roll();
+                let liMarker = document.createElement("li");
+                liMarker.innerText = `Dice Roll: ${rollX}`;
+                ulSelector.appendChild(liMarker);
+                console.log(rollX)
+            }
+        }
+
+        let resetButton = document.querySelector("#reset")
+        resetButton.onclick = () => {
+            rollX = 0
+        }
+
+
+
+    </script>
+
+</body>
+</html>

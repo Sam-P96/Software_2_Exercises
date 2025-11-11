@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        let dogList = [];
+
+        function dog_adder() {
+            let newDog = prompt("Enter a name of a dog")
+            dogList.push(newDog)
+        }
+
+        for (let i = 1; i <=6; i++) {
+            dog_adder()
+        }
+
+        console.log(dogList)
+        const ul_adder = document.querySelector("body");
+        ul_adder.innerHTML = "<ul></ul>"
+
+        const ul_selector = document.querySelector("ul")
+
+        dogList.sort().reverse()
+
+        for (let dog of dogList) {
+            let li_dog = document.createElement("li")
+            li_dog.textContent = `${dog}`;
+            ul_selector.appendChild(li_dog);
+        }
+    </script>
+
+</body>
+</html>

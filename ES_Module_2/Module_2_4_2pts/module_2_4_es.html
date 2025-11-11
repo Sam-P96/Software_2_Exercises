@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        let numList = [];
+
+        let newNum = 1;
+
+        while (newNum !== 0){
+            newNum = Number(prompt("Enter any number, enter 0 to stop:"))
+            if (newNum !== 0) {
+              numList.push(newNum);
+            }
+        }
+
+
+        numList.sort((a, b) => b - a)
+        for (let num of numList) {
+            console.log(num)
+        }
+    </script>
+
+</body>
+</html>
