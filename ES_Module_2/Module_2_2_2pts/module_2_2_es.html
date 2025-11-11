@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        function part_name_ask() {
+            let part_x = prompt("Enter the name of a participant.")
+            part_list.push(part_x)
+        }
+
+        const part_no = prompt("How many participants will there be?");
+        let part_list = [];
+        for (let i = 1; i <= part_no; i++){
+            part_name_ask();
+        }
+        console.log(part_list)
+        const ul_adder = document.querySelector("body");
+        ul_adder.innerHTML = "<ul></ul>"
+
+        const ul_selector = document.querySelector("ul")
+
+        for (let name of part_list) {
+            let li = document.createElement("li");
+            li.textContent = `${name}`;
+            ul_selector.appendChild(li)
+        }
+
+    </script>
+</body>
+</html>
