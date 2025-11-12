@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <h1>Leap Year or Not?</h1>
+  <label>Enter a year: </label>
+  <input id="year_input"><br><br>
+  <button id="submitButton">Submit</button>
+  <h2></h2>
+  <script>
+    let h2Getter = document.querySelector("h2")
+    let yearInput;
+    document.querySelector("#submitButton").onclick = function() {
+      yearInput = document.querySelector("#year_input").value;
+      if (yearInput % 100 === 0) {
+        h2Getter.innerText = "Not a leap year!"
+      } else if (yearInput % 4 === 0) {
+        h2Getter.innerText = "A leap year!"
+      } else {
+        h2Getter.innerText = "Not a leap year!"
+      }
+    }
+
+  </script>
+
+</body>
+</html>

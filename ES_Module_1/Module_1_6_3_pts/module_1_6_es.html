@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <h1 id="hello"></h1>
+  <script>
+    let cc = window.confirm("Should I print out the square root?")
+    const h1Getter = document.querySelector("#hello")
+    if (cc === true) {
+      let num = Number(prompt("Enter a number: "))
+      if (num > 0) {
+        let sR = Math.sqrt(num)
+          h1Getter.innerText = `${sR}`
+        } else {
+          h1Getter.innerText = "The square root of a negative number is not defined."
+        }
+    } else {
+      h1Getter.innerText = "The square root was not calculated"
+    }
+
+    </script>
+
+</body>
+</html>

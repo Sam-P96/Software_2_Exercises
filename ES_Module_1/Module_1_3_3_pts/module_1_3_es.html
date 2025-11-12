@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Module 1.3</h1>
+    <h2>Sum</h2>
+    <p id="Summer"></p>
+    <h2>Product</h2>
+    <p id="Production"></p>
+    <h2>Average</h2>
+    <p id="Height"></p>
+    <script>
+        let numList = [];
+        for (let i = 1; i <=3; i++) {
+            let newNum = Number(prompt("Enter an integer: "));
+            numList.push(newNum)
+        }
+
+        const sumNum = numList[0] + numList[1] + numList[2];
+        const productNum = numList[0] * numList[1] * numList[2];
+        const avgNum = sumNum / 3;
+
+        let sumP = document.querySelector("#Summer")
+        sumP.innerText = `${sumNum}`
+
+        let prodP = document.querySelector("#Production")
+        prodP.innerText = `${productNum}`
+
+        let avgP = document.querySelector("#Height")
+        avgP.innerText = `${avgNum}`
+    </script>
+</body>
+</html>
